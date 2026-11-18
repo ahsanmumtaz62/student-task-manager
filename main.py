@@ -32,7 +32,8 @@ def complete_task():
                 print("This task is already completed.")
             else:
                 tasks[task_id - 1]["completed"] = True
-                print("Task marked as completed!")
+                completed_count = sum(1 for task in tasks if task["completed"])
+		print(f"Task marked as completed! Completed tasks: {completed_count}")
         else:
             print("Invalid task number.")
 
