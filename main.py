@@ -3,11 +3,17 @@ tasks = []
 
 def add_task():
     title = input("Enter task title: ").strip()
-    if title:
-        tasks.append({"title": title, "completed": False})
-        print("Task added successfully!")
-    else:
+
+    if not title:
         print("Task title cannot be empty.")
+        return
+
+    if any(task["title"].lower() == title.lower() for task in tasks):
+        print("This task already exists.")
+        return
+
+    tasks.append({"title": title, "completed": False})
+    print("Task added successfully!")
 
 def display_tasks():
     if not tasks:
