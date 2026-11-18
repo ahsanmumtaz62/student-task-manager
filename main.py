@@ -20,13 +20,22 @@ def display_tasks():
 
 def complete_task():
     display_tasks()
+
+    if not tasks:
+        return
+
     try:
         task_id = int(input("Enter task number to complete: "))
+
         if 1 <= task_id <= len(tasks):
-            tasks[task_id - 1]["completed"] = True
-            print("Task marked as completed!")
+            if tasks[task_id - 1]["completed"]:
+                print("This task is already completed.")
+            else:
+                tasks[task_id - 1]["completed"] = True
+                print("Task marked as completed!")
         else:
             print("Invalid task number.")
+
     except ValueError:
         print("Please enter a valid number.")
 
