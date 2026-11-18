@@ -13,7 +13,7 @@ def add_task():
         return
 
     tasks.append({"title": title, "completed": False})
-    print("Task added successfully!")
+    print(f"Task added successfully! Total tasks: {len(tasks)}")
 
 def display_tasks():
     if not tasks:
